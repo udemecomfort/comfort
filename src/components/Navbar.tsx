@@ -28,10 +28,9 @@ const Navbar = () => {
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `relative font-medium transition duration-300 ${
-                    isActive
-                      ? "text-[#07aa99]"
-                      : "hover:text-[#07aa99]"
+                  `relative font-medium transition duration-300 ${isActive
+                    ? "text-[#07aa99]"
+                    : "hover:text-[#07aa99]"
                   }`
                 }
               >
@@ -44,10 +43,14 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Desktop Button */}
-        <button className="hidden md:flex items-center gap-2 bg-[#07aa99] px-6 py-2 rounded-xl text-black font-semibold hover:scale-105 transition">
+        <a
+          href="/comfortudeme.pdf"  // path to PDF in public
+          target="_blank"                  // opens in a new tab
+          rel="noopener noreferrer"        // security best practice
+          className="hidden md:flex items-center gap-2 bg-[#07aa99] px-6 py-2 rounded-xl text-black font-semibold hover:scale-105 transition"
+        >
           View Resume <FaBriefcase />
-        </button>
+        </a>
 
         {/* Mobile Menu Icon */}
         <button
@@ -60,9 +63,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <ul className="flex flex-col gap-6 px-6 py-6 bg-black">
           {links.map((link) => (
@@ -71,8 +73,7 @@ const Navbar = () => {
               to={link.path}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `text-lg font-medium transition ${
-                  isActive ? "text-[#07aa99]" : "hover:text-[#07aa99]"
+                `text-lg font-medium transition ${isActive ? "text-[#07aa99]" : "hover:text-[#07aa99]"
                 }`
               }
             >
@@ -80,9 +81,15 @@ const Navbar = () => {
             </NavLink>
           ))}
 
-          <button className="mt-4 flex items-center justify-center gap-2 bg-[#07aa99] py-3 rounded-lg text-black font-semibold">
-            View Resume <FaBriefcase />
-          </button>
+          <a
+  href="/comfortudeme.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-4 flex items-center justify-center gap-2 bg-[#07aa99] py-3 rounded-lg text-black font-semibold"
+>
+  View Resume <FaBriefcase />
+</a>
+
         </ul>
       </div>
     </nav>
